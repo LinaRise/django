@@ -1,0 +1,24 @@
+<html>
+ <head> 
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ <meta charset="utf-8" /> 
+ </head>
+<div class="card">
+
+    <h5 class="card-header info-color  text-center py-4">
+        <strong>Новый пост</strong>
+    </h5>
+<div class="card-body px-lg-5 pt-3">
+<div>
+  <form method="POST"" class="text-center	" style="color: #757575;" >
+
+	{% csrf_token %}
+		{{ form.as_p }}
+		
+<button type="submit"  style="height:50px;width:150px" class="btn btn-outline-info btn-rounded  z-depth-0 my-4 waves-effect">Сохранить</button>
+<button type="reset" style="height:50px;width:150px" class="btn btn-outline-info btn-rounded  z-depth-0 my-4 waves-effect">Отмена</button>
+</div>
+</form>
+</div>
+</div>
+</html>

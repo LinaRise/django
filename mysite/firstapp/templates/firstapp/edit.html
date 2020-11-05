@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="utf-8"/>
+    <title>Модели в Django</title>
+</head>
+<body class="container">
+<div id="container" class="container">
+    <div class="row">
+        <div class="col-sm-6 offset-sm-3 text-center">
+            <h3 class="display-5">Редактирование данных</h3>
+            <div class="info-form">
+                <form method="POST">
+                    {% csrf_token %}
+                       <div class="form-group">
+                        <label>Введите группу</label><br>
+                        <input class="form-control" type="text" name="group" value="{{student.group}}"/>
+                   </div>
+                       <div class="form-group">
+                        <label>Введите фамилию</label><br>
+                        <input class="form-control" type="text" name="lastname" value="{{student.lastname}}"/>
+                    </div>
+
+                      <div class="form-group">
+                        <label>Введите имя</label><br>
+                        <input class="form-control" type="text" name="name" value="{{student.name}}"/>
+                   </div>
+
+                       <div class="form-group">
+                        <label>Введите возраст</label><br>
+                        <input class="form-control" type="number" name="age" value="{{student.age}}"/>
+                    </div>
+
+                      <div class="form-group">
+                        <label>Введите возраст</label><br>
+                        <input class="form-control" type="text" name="interests" value="{{student.interests}}"/>
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Сохранить">
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

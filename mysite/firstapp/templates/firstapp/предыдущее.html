@@ -1,0 +1,67 @@
+<DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="{% static "css/styles.css" %}" />
+		<title> Hello Django</title>
+		
+</head>
+<body> 
+<h1>Игформация об авторе</h1>
+<img src="{% static "images/me.jpg" %}" alt = "Солнце">
+
+<p><strong>Имя: </strong>Алина<br>
+<strong>Возраст:</strong>20 лет<br>
+<strong>Место учебы:</strong>Казанский Федеральный университет<br>
+</p>
+<form name='form1'>
+    <input onclick='input()' type='button' value='Мои инетересы' id='button'><br>
+    <textarea style = "display: none;" id ="areatoShowOrHide" name='area'></textarea>
+
+</form>
+</body>
+<script  type="text/javascript" src ="{% static "js/script1.js" %}" ></script>
+</html>
+
+
+
+from django.conf import settings
+from django.db import models
+from django.utils import timezone
+class Post(models.Model):
+	author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+	title = models.CharField(max_length=200)
+	text = models.TextField()
+	created_date = models.DateTimeField(default=timezone.now)
+	published_date = models.DateTimeField(blank=True, null=True)
+	
+	
+	def publish(self):
+		self.published_date = timezone.now()
+		self.save()
+		
+		
+	def __str__(self):
+		return self.title
+
+
+
+
+
+
+<table> 
+	<tr>
+		<th>Id</th>
+		<th>Наименование</th>
+		<th>текст</th>
+		<th>Дата публикации новости</th>
+	</tr> 
+	{% for post in text %} 
+	<tr>
+		<td>{{ post.author }}</td>
+		<td>{{ post.title }}</td>
+		<td>{{ post.text }}</td>
+		<td>{{ post.published_date }}</td>
+	</tr> {% endfor %}
+</table> {% endif %} 
